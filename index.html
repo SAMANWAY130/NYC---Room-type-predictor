@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yokoso Soul Society | Airbnb Room Predictor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="noise"></div>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="particles" id="particles"></div>
+
+    <header class="navbar">
+        <div class="brand">
+            <div class="brand-mark">卍</div>
+            <div>
+                <span class="brand-title">SOUL SOCIETY</span>
+                <span class="brand-subtitle">ROOM CLASSIFICATION ENGINE</span>
+            </div>
+        </div>
+        <div class="status">
+            <span class="status-dot"></span>
+            AI ENGINE ONLINE
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="eyebrow">NEW YORK • AIRBNB INTELLIGENCE</div>
+            <h1>Discover the <span>Room Type</span><br>Hidden in the Data.</h1>
+            <p>
+                Enter the property details below and let the machine-learning
+                engine classify the Airbnb room type.
+            </p>
+        </section>
+
+        <section class="app-grid">
+            <form id="houseForm" class="prediction-card">
+
+                <div class="card-heading">
+                    <div>
+                        <span class="section-label">01 / PROPERTY PROFILE</span>
+                        <h2>Property Details</h2>
+                    </div>
+                    <div class="mini-icon">⌂</div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="neighbourhood_group">Borough</label>
+                        <select id="neighbourhood_group" required>
+                            <option value="">Select borough</option>
+                            <option>Brooklyn</option>
+                            <option>Manhattan</option>
+                            <option>Queens</option>
+                            <option>Staten Island</option>
+                            <option>Bronx</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="neighbourhood">Neighbourhood</label>
+                        <select id="neighbourhood" required>
+                            <option value="">Select neighbourhood</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="latitude">Latitude</label>
+                        <input id="latitude" type="number" step="any" min="-90" max="90" placeholder="40.7128" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="longitude">Longitude</label>
+                        <input id="longitude" type="number" step="any" min="-180" max="180" placeholder="-74.0060" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="price">Price / Night</label>
+                        <div class="input-wrap">
+                            <span>$</span>
+                            <input id="price" type="number" step="any" min="0.01" placeholder="150" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="minimum_nights">Minimum Nights</label>
+                        <input id="minimum_nights" type="number" step="any" min="0" placeholder="3" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="number_of_reviews">Number of Reviews</label>
+                        <input id="number_of_reviews" type="number" step="any" min="0" placeholder="25" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="reviews_per_month">Reviews / Month</label>
+                        <input id="reviews_per_month" type="number" step="any" min="0" placeholder="2.5" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="calculated_host_listings_count">Host Listings</label>
+                        <input id="calculated_host_listings_count" type="number" step="any" min="0" placeholder="1" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="availability_365">Availability / Year</label>
+                        <input id="availability_365" type="number" step="any" min="0" max="365" placeholder="180" required>
+                    </div>
+                </div>
+
+                <button id="predictBtn" class="predict-btn" type="submit">
+                    <span class="btn-text">CLASSIFY PROPERTY</span>
+                    <span class="btn-arrow">→</span>
+                    <span class="spinner"></span>
+                </button>
+
+                <div id="errorBox" class="error-box"></div>
+            </form>
+
+            <aside class="result-panel" id="resultPanel">
+                <div class="result-glow"></div>
+
+                <span class="section-label">02 / MODEL OUTPUT</span>
+
+                <div class="result-content">
+                    <div class="result-symbol" id="resultSymbol">?</div>
+                    <p class="result-caption">PREDICTED ROOM TYPE</p>
+                    <h2 id="resultValue">Awaiting<br>Prediction</h2>
+                    <p id="resultDescription">
+                        Complete the property profile and activate the classification engine.
+                    </p>
+                </div>
+
+                <div class="result-line"></div>
+
+                <div class="result-meta">
+                    <span>MODEL</span>
+                    <strong>RANDOM FOREST</strong>
+                </div>
+                <div class="result-meta">
+                    <span>API</span>
+                    <strong id="apiStatus">READY</strong>
+                </div>
+            </aside>
+        </section>
+
+        <footer>
+            <span>YOKOSO SOUL SOCIETY</span>
+            <span>ML CLASSIFICATION SYSTEM</span>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
