@@ -3,7 +3,7 @@
  * Local FastAPI example:
  * http://127.0.0.1:8000
  */
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "https://nyc-room-type-predictor-1-9dc7.onrender.com";
 
 const neighbourhoods = [
     "Kensington", "Midtown", "Harlem", "Clinton Hill", "East Harlem",
